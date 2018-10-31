@@ -542,6 +542,9 @@
     <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\NonlinearInterface.hpp">
       <Filter>NairnMPM_src\Contact_Laws</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\DP_Plasticity.hpp">
+      <Filter>NairnMPM_src\Hypoplastic_Plastic</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\..\Read_XML\HashString.hpp">
       <Filter>Common\Read_XML</Filter>
     </ClInclude>
@@ -1026,6 +1029,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\NonlinearInterface.cpp">
       <Filter>NairnMPM_src\Contact_Laws</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\DP_Plasticity.cpp">
+      <Filter>NairnMPM_src\Hypoplastic_Plastic</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Read_XML\HashString.cpp">
       <Filter>Common\Read_XML</Filter>
