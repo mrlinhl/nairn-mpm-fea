@@ -29,7 +29,8 @@ class CommonArchiveData
 		void ArchiveElements(int);
 
 		// accessors
-		bool SetArchiveRoot(char *,bool);
+		void DefineArchiveRoot(const char *);
+		bool SetArchiveRoot(bool);
 		char *GetArchiveRoot(void);
 		void SetArchiveMesh(bool);
 		void SetInputDirPath(const char *,bool);
@@ -40,6 +41,7 @@ class CommonArchiveData
 	protected:
 		char *inputDir,*archiveRoot,*globalFile,*archiveParent,*archiveDosRoot;
 		char *outputDir;
+		bool hasSetArchiveRoot;
 		bool archiveMesh,forceUnique;
 };
 

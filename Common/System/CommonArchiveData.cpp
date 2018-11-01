@@ -43,6 +43,7 @@ CommonArchiveData::CommonArchiveData()
 	// For windows dos command, uses backslashes
 	archiveParent=NULL;
 
+	hasSetArchiveRoot = false;		// second set not allowed
 	archiveMesh=false;		// list mesh in output file (FALSE) or in files (TRUE)
 	forceUnique=false;		// when TRUE forces unique folder to be created for archiving
 }
@@ -173,6 +174,14 @@ void CommonArchiveData::SetInputDirPath(const char *cmdFile,bool useWorkingDir)
 	{	// write to same folder as the input file
 		outputDir = inputDir;
 	}
+	
+	// define default ArchiveRoot
+	char *defaultArchiveRoot = new char[strlen(cmdFile) + 20]();
+	strcat(defaultArchiveRoot, "Archive\\");
+	strcat(defaultArchiveRoot, cmdFile);
+	strcat(defaultArchiveRoot, "\\Results");
+	DefineArchiveRoot(defaultArchiveRoot);
+	delete[] defaultArchiveRoot;
 }
 
 // Get path for file using outputDir. This will be relative to the input file
@@ -218,17 +227,26 @@ char *CommonArchiveData::ExpandOutputPath(const char *partialName)
 	return path;
 }
 
+// Define archiveRoot
+void CommonArchiveData::DefineArchiveRoot(const char *newRoot)
+{
+	if (archiveRoot != NULL) delete [] archiveRoot;
+	
+	archiveRoot = new char[strlen(newRoot) + 5];		// 5 saves room for unique folder /1 - /999
+	strcpy(archiveRoot, newRoot);
+	
+}
+
 // Set archiveRoot and make sure does not end in period and remove spaces
 // Find parent folder (without the terminal / or backslash) or empty string if no parent
 // User can enter using slashes or back slashes
 // throws std::bad_alloc
-bool CommonArchiveData::SetArchiveRoot(char *newRoot,bool makeUnique)
+bool CommonArchiveData::SetArchiveRoot(bool makeUnique)
 {
 	// second set not allowed
-	if(archiveRoot!=NULL) return false;
+	if(archiveRoot==NULL||hasSetArchiveRoot==true) return false;
+	hasSetArchiveRoot = true;
 	
-	archiveRoot=new char[strlen(newRoot)+5];		// 5 saves room for unique folder /1 - /999
-	strcpy(archiveRoot,newRoot);
 	unsigned i=(unsigned)strlen(archiveRoot);
 	if(archiveRoot[i-1]=='.') archiveRoot[i-1]=0;
 	
