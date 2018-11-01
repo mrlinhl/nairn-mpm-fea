@@ -1515,11 +1515,13 @@ void MPMReadHandler::myCharacters(char *xData,const unsigned int length)
 	{	case TEXT_BLOCK:
 			switch(inputID)
 			{	case ARCHIVEROOT_NAME:
-					if(!archiver->SetArchiveRoot(xData,false))
+					archiver->DefineArchiveRoot(xData);
+					if(!archiver->SetArchiveRoot(false))
 						throw SAXException("Cannot set two <ArchiveRoot> paths.");
 					break;
 				case UNIQUE_ARCHIVEROOT_NAME:
-					if(!archiver->SetArchiveRoot(xData,true))
+					archiver->DefineArchiveRoot(xData);
+					if(!archiver->SetArchiveRoot(true))
 						throw SAXException("Cannot set two <ArchiveRoot> paths.");
 					break;
 				default:

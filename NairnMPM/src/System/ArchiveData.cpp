@@ -70,6 +70,9 @@ bool ArchiveData::MakeArchiveFolder(void)
 {
 	if(archiveRoot==NULL) return false;
 	
+	// Set default ArchiveRoot, No makeUnique
+	if(hasSetArchiveRoot == false) SetArchiveRoot(false);
+	
     //---------------------------------------------------
     // Create directory for archived files (if needed)
 	char syscmd[600];
