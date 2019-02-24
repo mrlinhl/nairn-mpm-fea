@@ -40,6 +40,8 @@
 	#include "Materials/NonlinearInterface.hpp"
 	#include "Materials/AdhesionFriction.hpp"
 	#include "Materials/LiquidContact.hpp"
+
+    #include "Materials/DP_Plasticity.hpp"
 #else
 	#include "Materials/ImperfectInterface.hpp"
 #endif
@@ -178,6 +180,9 @@ int MaterialController::AddMaterial(int matID,char *matName)
             break;
         case LIQUIDCONTACT:
             newMaterial=new LiquidContact(matName);
+            break;
+        case DP_PLASTICITY:
+            newMaterial = new DP_Plasticity(matName);
             break;
 #else
 		case INTERFACEPARAMS:
