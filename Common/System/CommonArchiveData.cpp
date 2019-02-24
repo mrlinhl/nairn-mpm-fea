@@ -177,9 +177,8 @@ void CommonArchiveData::SetInputDirPath(const char *cmdFile,bool useWorkingDir)
 	
 	// define default ArchiveRoot
 	char *defaultArchiveRoot = new char[strlen(cmdFile) + 20]();
-	strcat(defaultArchiveRoot, "Archive\\");
 	strcat(defaultArchiveRoot, cmdFile);
-	strcat(defaultArchiveRoot, "\\Results");
+	strcat(defaultArchiveRoot, ".Archive\\Results");
 	DefineArchiveRoot(defaultArchiveRoot);
 	delete[] defaultArchiveRoot;
 }
