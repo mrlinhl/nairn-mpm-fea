@@ -221,6 +221,7 @@
     <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\CubicTraction.hpp" />
     <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\DDBHardening.hpp" />
     <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\DP_Plasticity.hpp" />
+    <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\HypoViscosity.hpp" />
     <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\HardeningLawBase.hpp" />
     <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\HEIsotropic.hpp" />
     <ClInclude Include="..\..\..\..\..\NairnMPM\src\Materials\HEMGEOSMaterial.hpp" />
@@ -377,6 +378,7 @@
     <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\CubicTraction.cpp" />
     <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\DDBHardening.cpp" />
     <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\DP_Plasticity.cpp" />
+    <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\HypoViscosity.cpp" />
     <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\ElasticMPM.cpp" />
     <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\HardeningLawBase.cpp" />
     <ClCompile Include="..\..\..\..\..\NairnMPM\src\Materials\HEIsotropic.cpp" />

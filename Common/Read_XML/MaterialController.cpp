@@ -42,6 +42,7 @@
 	#include "Materials/LiquidContact.hpp"
 
     #include "Materials/DP_Plasticity.hpp"
+    #include "Materials/HypoViscosity.hpp"
 #else
 	#include "Materials/ImperfectInterface.hpp"
 #endif
@@ -183,6 +184,9 @@ int MaterialController::AddMaterial(int matID,char *matName)
             break;
         case DP_PLASTICITY:
             newMaterial = new DP_Plasticity(matName);
+            break;
+        case HYPOVISCOSITY:
+            newMaterial = new HypoViscosity(matName);
             break;
 #else
 		case INTERFACEPARAMS:
